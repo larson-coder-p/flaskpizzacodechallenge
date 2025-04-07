@@ -110,6 +110,8 @@ def seed_data():
         db.session.commit()
 
 if __name__ == '__main__':
-    db.create_all()
-    seed_data()
+    with app.app_context():
+        db.create_all()
+        seed_data()
     app.run(debug=True)
+
